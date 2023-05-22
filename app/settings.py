@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'tokens',
     'rest_framework',
+    'django_filters'
 ]
 
 MIDDLEWARE = [
@@ -124,7 +125,8 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-DOMAIN_NAME = "Name"
-DOMAIN_CONTRACT = "0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
-DOMAIN_VERSION = "1.0"
-DOMAIN_CHAIN_ID = 1
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': (
+        'django_filters.rest_framework.DjangoFilterBackend',
+    ),
+}
